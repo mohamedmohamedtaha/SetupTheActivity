@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Visualize</string>
 
-    <!-- TODO (4) Add string for Settings -->
+    <!-- gTODO (4) Add string for Settings -->
 
     <!-- - - - - - - - - - - - - - - -
           - Used by Preferences  -
@@ -18,4 +18,12 @@
 
     <!-- Value in SharedPreferences for green color option -->
     <string name="action_settings">Settings</string>
+
+    <!-- TODO (12) Add Strings for checkbox preference -->
+
+    <string name="show_bass_key" translatable="false">show_bass</string>
+    <string name="show_bass_title">Show Bass</string>
+    <string name="pref_show_true">shown</string>
+    <string name="pref_show_false">hidden</string>
+
 </resources>
