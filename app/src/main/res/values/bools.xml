@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <bool name="devault_value">true</bool>
+    <bool name="devault_value_show_bass">true</bool>
+
+    <!-- TODO (17) Add any extra booleans for the new checkboxes -->
+
+    <bool name="devault_value_show_range">false</bool>
+    <bool name="devault_value_show_treble">false</bool>
+
 
 </resources>

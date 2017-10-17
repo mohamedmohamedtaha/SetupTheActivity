@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <CheckBoxPreference
-        android:defaultValue="@bool/devault_value"
+        android:defaultValue="@bool/devault_value_show_bass"
         android:key="@string/show_bass_key"
         android:summaryOff="@string/pref_show_false"
         android:summaryOn="@string/pref_show_true"
         android:title="@string/show_bass_title"/>
     <!-- TODO (13) Create a res->bools.xml file and create a boolean for this default value -->
     <!-- TODO (14) Update these values to be values from resource files and not hard coded -->
+    <!-- TODO (15) Add two more checkboxes for the treble and mid-range -->
+    <CheckBoxPreference
+        android:defaultValue="@bool/devault_value_show_range"
+        android:key="@string/mid_range_key"
+        android:summaryOn="@string/pref_show_true"
+        android:summaryOff="@string/pref_show_false"
+        android:title="mid_range_title"/>
+    <CheckBoxPreference
+        android:defaultValue="@bool/devault_value_show_treble"
+        android:key="@string/show_treble_key"
+        android:summaryOn="@string/pref_show_true"
+        android:summaryOff="@string/pref_show_false"
+        android:title="show_treble_title"/>
 
 </PreferenceScreen>

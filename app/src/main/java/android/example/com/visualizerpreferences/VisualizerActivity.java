@@ -49,6 +49,7 @@ public class VisualizerActivity extends AppCompatActivity implements SharedPrefe
         setupPermissions();
     }
     // TODO (8) Change the name of default setup to setupSharedPreferences
+    // TODO (18) Update the code in setupSharedPreferences and onSharedPreferenceChanged to update
 
     private void setupSharedPreferences() {
         // TODO (9) Get the value of the show_bass checkbox preference and use it to call setShowBass
@@ -58,10 +59,17 @@ public class VisualizerActivity extends AppCompatActivity implements SharedPrefe
         // TODO (11) Use resources here instead of the hard coded string and boolean
 
         mVisualizerView.setShowBass(sharedPreferences.getBoolean(getString(R.string.show_bass_key),
-                getResources().getBoolean(R.bool.devault_value)));
+                getResources().getBoolean(R.bool.devault_value_show_bass)));
 
-        mVisualizerView.setShowMid(true);
-        mVisualizerView.setShowTreble(true);
+
+      //  mVisualizerView.setShowMid(true);
+        mVisualizerView.setShowMid(sharedPreferences.getBoolean(getString(R.string.mid_range_key),
+                getResources().getBoolean(R.bool.devault_value_show_range)));
+
+        // mVisualizerView.setShowTreble(true);
+        mVisualizerView.setShowTreble(sharedPreferences.getBoolean(getString(R.string.show_treble_key),
+                getResources().getBoolean(R.bool.devault_value_show_treble)));
+
         mVisualizerView.setMinSizeScale(1);
         mVisualizerView.setColor(getString(R.string.pref_color_red_value));
         // TODO (16) Register the listener
@@ -169,7 +177,11 @@ public class VisualizerActivity extends AppCompatActivity implements SharedPrefe
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if (key.equals(getString(R.string.show_bass_key))){
-            mVisualizerView.setShowBass(sharedPreferences.getBoolean(key, getResources().getBoolean(R.bool.devault_value)));
+            mVisualizerView.setShowBass(sharedPreferences.getBoolean(key, getResources().getBoolean(R.bool.devault_value_show_bass)));
+        } else if (key.equals(getString(R.string.mid_range_key))){
+            mVisualizerView.setShowMid(sharedPreferences.getBoolean(key, getResources().getBoolean(R.bool.devault_value_show_range)));
+        } else if (key.equals(getString(R.string.show_treble_key))){
+            mVisualizerView.setShowTreble(sharedPreferences.getBoolean(key, getResources().getBoolean(R.bool.devault_value_show_treble)));
         }
 
     }
