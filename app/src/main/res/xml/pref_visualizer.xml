@@ -21,5 +21,35 @@
         android:summaryOn="@string/pref_show_true"
         android:summaryOff="@string/pref_show_false"
         android:title="show_treble_title"/>
+    <!-- TODO (19) Add a list preference -->
+    <ListPreference
+        android:defaultValue="@string/color_red_value"
+        android:entries="@array/color_option_labels"
+        android:entryValues="@array/color_option_values"
+        android:key="@string/color_key"
+        android:title="@string/color_label"
+
+
+
+        />
+
 
 </PreferenceScreen>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -50,6 +50,7 @@ public class VisualizerActivity extends AppCompatActivity implements SharedPrefe
     }
     // TODO (8) Change the name of default setup to setupSharedPreferences
     // TODO (18) Update the code in setupSharedPreferences and onSharedPreferenceChanged to update
+    // TODO (22) Update setupSharedPreferences and onSharedPreferenceChanged to load the color
 
     private void setupSharedPreferences() {
         // TODO (9) Get the value of the show_bass checkbox preference and use it to call setShowBass
@@ -71,9 +72,15 @@ public class VisualizerActivity extends AppCompatActivity implements SharedPrefe
                 getResources().getBoolean(R.bool.devault_value_show_treble)));
 
         mVisualizerView.setMinSizeScale(1);
-        mVisualizerView.setColor(getString(R.string.pref_color_red_value));
+       // mVisualizerView.setColor(getString(R.string.pref_color_red_value));
+           loadColorFromPreferences(sharedPreferences);
+
         // TODO (16) Register the listener
         sharedPreferences.registerOnSharedPreferenceChangeListener(this);
+    }
+    private void loadColorFromPreferences(SharedPreferences sharedPreferences){
+        mVisualizerView.setColor(sharedPreferences.getString(getString(R.string.color_key),
+                getString(R.string.color_red_value)));
     }
 
     // TODO (17) Override the onSharedPreferenceChanged method and update the show bass preference
@@ -182,6 +189,8 @@ public class VisualizerActivity extends AppCompatActivity implements SharedPrefe
             mVisualizerView.setShowMid(sharedPreferences.getBoolean(key, getResources().getBoolean(R.bool.devault_value_show_range)));
         } else if (key.equals(getString(R.string.show_treble_key))){
             mVisualizerView.setShowTreble(sharedPreferences.getBoolean(key, getResources().getBoolean(R.bool.devault_value_show_treble)));
+        }else if (key.equals(getString(R.string.color_key))){
+            loadColorFromPreferences(sharedPreferences);
         }
 
     }
