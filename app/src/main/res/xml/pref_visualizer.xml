@@ -28,10 +28,14 @@
         android:entryValues="@array/color_option_values"
         android:key="@string/color_key"
         android:title="@string/color_label"
-
-
-
         />
+    <!-- TODO (27) Add and EditTextPreference with all of the appropriate strings stored in strings.xml.
+           It should have a key, default value of 1 and title -->
+    <EditTextPreference
+        android:defaultValue="@string/size_devault"
+        android:title="@string/size_label"
+        android:key="@string/size_key"
+                />
 
 
 </PreferenceScreen>

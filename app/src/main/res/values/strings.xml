@@ -46,6 +46,10 @@
     <string name="color_blue_value" translatable="false">blue</string>
     <string name="color_green_value" translatable="false">green</string>
 
+    <string name="size_label">Size Multiplier</string>
+    <string name="size_key" translatable="false">size</string>
+    <string name="size_devault" translatable="false">1</string>
+
 
     <!-- TODO (21) Add a res->values->arrays.xml file which contains two arrays, one for
         labels and one for values. The arrays should contain strings found in this file-->

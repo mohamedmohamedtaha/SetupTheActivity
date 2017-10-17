@@ -51,7 +51,13 @@ public class VisualizerActivity extends AppCompatActivity implements SharedPrefe
     // TODO (8) Change the name of default setup to setupSharedPreferences
     // TODO (18) Update the code in setupSharedPreferences and onSharedPreferenceChanged to update
     // TODO (22) Update setupSharedPreferences and onSharedPreferenceChanged to load the color
-
+// TODO (28) Modify the setupSharedPreferences method and onSharedPreferencesChanged method to
+    // properly update the minSizeScale, assuming a proper numerical value is saved in shared preferences
+private void loadSizeFromSharedPreferences(SharedPreferences sharedPreferences){
+    float minSize = Float.parseFloat(sharedPreferences.getString(getString(R.string.size_key),
+            getString(R.string.size_devault)));
+    mVisualizerView.setMinSizeScale(minSize);
+}
     private void setupSharedPreferences() {
         // TODO (9) Get the value of the show_bass checkbox preference and use it to call setShowBass
         SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(this);
@@ -71,10 +77,10 @@ public class VisualizerActivity extends AppCompatActivity implements SharedPrefe
         mVisualizerView.setShowTreble(sharedPreferences.getBoolean(getString(R.string.show_treble_key),
                 getResources().getBoolean(R.bool.devault_value_show_treble)));
 
-        mVisualizerView.setMinSizeScale(1);
        // mVisualizerView.setColor(getString(R.string.pref_color_red_value));
            loadColorFromPreferences(sharedPreferences);
-
+      //  mVisualizerView.setMinSizeScale(1);
+        loadSizeFromSharedPreferences(sharedPreferences);
         // TODO (16) Register the listener
         sharedPreferences.registerOnSharedPreferenceChangeListener(this);
     }
@@ -191,6 +197,10 @@ public class VisualizerActivity extends AppCompatActivity implements SharedPrefe
             mVisualizerView.setShowTreble(sharedPreferences.getBoolean(key, getResources().getBoolean(R.bool.devault_value_show_treble)));
         }else if (key.equals(getString(R.string.color_key))){
             loadColorFromPreferences(sharedPreferences);
+        }else if (key.equals(getString(R.string.size_key))){
+            loadSizeFromSharedPreferences(sharedPreferences);
+         //   float minSize = Float.parseFloat(sharedPreferences.getString(getString(R.string.size_key),"1.0"));
+          //  mVisualizerView.setMinSizeScale(minSize);
         }
 
     }
